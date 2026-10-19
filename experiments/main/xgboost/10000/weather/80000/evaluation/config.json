@@ -1,0 +1,38 @@
+{
+    "function": "project.xgboost_.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/weather",
+            "train": {
+                "size": 80000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "booster": "gbtree",
+            "n_estimators": 10000,
+            "early_stopping_rounds": 300,
+            "n_jobs": 8,
+            "tree_method": "hist",
+            "device": "cuda",
+            "use_label_encoder": false,
+            "max_depth": 8,
+            "min_child_weight": 0.0003255971835051175,
+            "subsample": 0.9299832223787883,
+            "colsample_bytree": 0.5809763935695356,
+            "learning_rate": 0.00456357163890234,
+            "gamma": 0,
+            "alpha": 0.0,
+            "lambda": 0.0006332067787390799,
+            "grow_policy": "lossguide"
+        },
+        "fit": {
+            "verbose": true
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

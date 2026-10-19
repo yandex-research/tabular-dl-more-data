@@ -1,0 +1,940 @@
+{
+    "function": "lib.tools.evaluate.main",
+    "experiments": [
+        {
+            "config": {
+                "seed": 0,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 55000,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.304629752885568,
+                        "mae": 0.9481499791145325,
+                        "r2": 0.8873476982116699,
+                        "score": -1.304629752885568
+                    },
+                    "val_iid": {
+                        "rmse": 1.3221899374369346,
+                        "mae": 0.9648934602737427,
+                        "r2": 0.8850942254066467,
+                        "score": -1.3221899374369346
+                    },
+                    "val": {
+                        "rmse": 1.5126071261465939,
+                        "mae": 1.0914106369018555,
+                        "r2": 0.85593181848526,
+                        "score": -1.5126071261465939
+                    },
+                    "test_iid": {
+                        "rmse": 1.3192158495437272,
+                        "mae": 0.9601423144340515,
+                        "r2": 0.8852692246437073,
+                        "score": -1.3192158495437272
+                    },
+                    "test": {
+                        "rmse": 1.4482914098913546,
+                        "mae": 1.051108479499817,
+                        "r2": 0.8586162328720093,
+                        "score": -1.4482914098913546
+                    }
+                },
+                "time": 450.602741163224,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 0
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        },
+        {
+            "config": {
+                "seed": 1,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 63750,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.3073053650562607,
+                        "mae": 0.9500558376312256,
+                        "r2": 0.8868851661682129,
+                        "score": -1.3073053650562607
+                    },
+                    "val_iid": {
+                        "rmse": 1.320008282346462,
+                        "mae": 0.9623820781707764,
+                        "r2": 0.8854731321334839,
+                        "score": -1.320008282346462
+                    },
+                    "val": {
+                        "rmse": 1.51931227648311,
+                        "mae": 1.0981203317642212,
+                        "r2": 0.8546517491340637,
+                        "score": -1.51931227648311
+                    },
+                    "test_iid": {
+                        "rmse": 1.3194139120127424,
+                        "mae": 0.9626103043556213,
+                        "r2": 0.8852347731590271,
+                        "score": -1.3194139120127424
+                    },
+                    "test": {
+                        "rmse": 1.449785312017953,
+                        "mae": 1.0519590377807617,
+                        "r2": 0.858324408531189,
+                        "score": -1.449785312017953
+                    }
+                },
+                "time": 471.62810027226806,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 0
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        },
+        {
+            "config": {
+                "seed": 2,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 73750,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.297915076085928,
+                        "mae": 0.9462987184524536,
+                        "r2": 0.8885042667388916,
+                        "score": -1.297915076085928
+                    },
+                    "val_iid": {
+                        "rmse": 1.317041577710403,
+                        "mae": 0.9628393054008484,
+                        "r2": 0.8859873414039612,
+                        "score": -1.317041577710403
+                    },
+                    "val": {
+                        "rmse": 1.5193332258701218,
+                        "mae": 1.1000783443450928,
+                        "r2": 0.8546477556228638,
+                        "score": -1.5193332258701218
+                    },
+                    "test_iid": {
+                        "rmse": 1.3110046496828962,
+                        "mae": 0.96014803647995,
+                        "r2": 0.886693000793457,
+                        "score": -1.3110046496828962
+                    },
+                    "test": {
+                        "rmse": 1.4470166032019178,
+                        "mae": 1.051019310951233,
+                        "r2": 0.858864963054657,
+                        "score": -1.4470166032019178
+                    }
+                },
+                "time": 518.3725778236985,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 1
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        },
+        {
+            "config": {
+                "seed": 3,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 86250,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.297805544207437,
+                        "mae": 0.9410302639007568,
+                        "r2": 0.8885231018066406,
+                        "score": -1.297805544207437
+                    },
+                    "val_iid": {
+                        "rmse": 1.317496507629167,
+                        "mae": 0.9581554532051086,
+                        "r2": 0.8859086036682129,
+                        "score": -1.317496507629167
+                    },
+                    "val": {
+                        "rmse": 1.5147668827851826,
+                        "mae": 1.090729832649231,
+                        "r2": 0.8555201292037964,
+                        "score": -1.5147668827851826
+                    },
+                    "test_iid": {
+                        "rmse": 1.3112961379698993,
+                        "mae": 0.9551010727882385,
+                        "r2": 0.8866426348686218,
+                        "score": -1.3112961379698993
+                    },
+                    "test": {
+                        "rmse": 1.4510519355507325,
+                        "mae": 1.0470324754714966,
+                        "r2": 0.8580766916275024,
+                        "score": -1.4510519355507325
+                    }
+                },
+                "time": 602.1711445190012,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 1
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        },
+        {
+            "config": {
+                "seed": 4,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 86250,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.2926461085186023,
+                        "mae": 0.9382709860801697,
+                        "r2": 0.8894076943397522,
+                        "score": -1.2926461085186023
+                    },
+                    "val_iid": {
+                        "rmse": 1.3134516036487844,
+                        "mae": 0.9549691677093506,
+                        "r2": 0.8866080641746521,
+                        "score": -1.3134516036487844
+                    },
+                    "val": {
+                        "rmse": 1.514742722272979,
+                        "mae": 1.0910714864730835,
+                        "r2": 0.8555247783660889,
+                        "score": -1.514742722272979
+                    },
+                    "test_iid": {
+                        "rmse": 1.3060970800954927,
+                        "mae": 0.9505242705345154,
+                        "r2": 0.8875397443771362,
+                        "score": -1.3060970800954927
+                    },
+                    "test": {
+                        "rmse": 1.449853310893178,
+                        "mae": 1.050575613975525,
+                        "r2": 0.8583110570907593,
+                        "score": -1.449853310893178
+                    }
+                },
+                "time": 629.9081791229546,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 0
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        },
+        {
+            "config": {
+                "seed": 5,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 57500,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.3039997138186883,
+                        "mae": 0.949508011341095,
+                        "r2": 0.887456476688385,
+                        "score": -1.3039997138186883
+                    },
+                    "val_iid": {
+                        "rmse": 1.3221953921351868,
+                        "mae": 0.9661858081817627,
+                        "r2": 0.8850933313369751,
+                        "score": -1.3221953921351868
+                    },
+                    "val": {
+                        "rmse": 1.5199783569602041,
+                        "mae": 1.102094054222107,
+                        "r2": 0.8545242547988892,
+                        "score": -1.5199783569602041
+                    },
+                    "test_iid": {
+                        "rmse": 1.3153020376277393,
+                        "mae": 0.9631247520446777,
+                        "r2": 0.8859489560127258,
+                        "score": -1.3153020376277393
+                    },
+                    "test": {
+                        "rmse": 1.4525677832907906,
+                        "mae": 1.058563470840454,
+                        "r2": 0.8577800393104553,
+                        "score": -1.4525677832907906
+                    }
+                },
+                "time": 452.05964471772313,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 0
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        },
+        {
+            "config": {
+                "seed": 6,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 95000,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.286663620768946,
+                        "mae": 0.9351356625556946,
+                        "r2": 0.8904290199279785,
+                        "score": -1.286663620768946
+                    },
+                    "val_iid": {
+                        "rmse": 1.3089337263152627,
+                        "mae": 0.9521237015724182,
+                        "r2": 0.8873867988586426,
+                        "score": -1.3089337263152627
+                    },
+                    "val": {
+                        "rmse": 1.5127838877190565,
+                        "mae": 1.0928922891616821,
+                        "r2": 0.8558981418609619,
+                        "score": -1.5127838877190565
+                    },
+                    "test_iid": {
+                        "rmse": 1.3045748816214067,
+                        "mae": 0.9501250982284546,
+                        "r2": 0.8878017067909241,
+                        "score": -1.3045748816214067
+                    },
+                    "test": {
+                        "rmse": 1.4388219311296002,
+                        "mae": 1.0444437265396118,
+                        "r2": 0.8604589700698853,
+                        "score": -1.4388219311296002
+                    }
+                },
+                "time": 653.6937125250697,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 1
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        },
+        {
+            "config": {
+                "seed": 7,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 57500,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.312867340271844,
+                        "mae": 0.956632137298584,
+                        "r2": 0.8859205842018127,
+                        "score": -1.312867340271844
+                    },
+                    "val_iid": {
+                        "rmse": 1.329605220127187,
+                        "mae": 0.9716628789901733,
+                        "r2": 0.8838017582893372,
+                        "score": -1.329605220127187
+                    },
+                    "val": {
+                        "rmse": 1.522632640579253,
+                        "mae": 1.1077501773834229,
+                        "r2": 0.8540157675743103,
+                        "score": -1.522632640579253
+                    },
+                    "test_iid": {
+                        "rmse": 1.3274200363644864,
+                        "mae": 0.9706980586051941,
+                        "r2": 0.8838377594947815,
+                        "score": -1.3274200363644864
+                    },
+                    "test": {
+                        "rmse": 1.453182342382329,
+                        "mae": 1.0582363605499268,
+                        "r2": 0.8576596975326538,
+                        "score": -1.453182342382329
+                    }
+                },
+                "time": 438.20415062457323,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 1
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        },
+        {
+            "config": {
+                "seed": 8,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 43750,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.3134185210950395,
+                        "mae": 0.9585828185081482,
+                        "r2": 0.8858247995376587,
+                        "score": -1.3134185210950395
+                    },
+                    "val_iid": {
+                        "rmse": 1.3271874652931706,
+                        "mae": 0.9735914468765259,
+                        "r2": 0.884223997592926,
+                        "score": -1.3271874652931706
+                    },
+                    "val": {
+                        "rmse": 1.5236354601450364,
+                        "mae": 1.1046221256256104,
+                        "r2": 0.8538234233856201,
+                        "score": -1.5236354601450364
+                    },
+                    "test_iid": {
+                        "rmse": 1.3273338654292095,
+                        "mae": 0.9713334441184998,
+                        "r2": 0.8838528394699097,
+                        "score": -1.3273338654292095
+                    },
+                    "test": {
+                        "rmse": 1.4537120166647965,
+                        "mae": 1.061995506286621,
+                        "r2": 0.8575558662414551,
+                        "score": -1.4537120166647965
+                    }
+                },
+                "time": 337.26355400308967,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 0
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        },
+        {
+            "config": {
+                "seed": 9,
+                "data": {
+                    "dataset_dir": "data/weather",
+                    "train": {
+                        "size": 5120000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": "noisy-quantile"
+                },
+                "model": {
+                    "backbone": {
+                        "n_blocks": 6,
+                        "d_block": 576,
+                        "dropout": 0.2149622788566839
+                    },
+                    "num_embeddings": {
+                        "type": "PiecewiseLinearEmbeddings",
+                        "d_embedding": 20,
+                        "activation": false,
+                        "version": "B"
+                    }
+                },
+                "optimizer": {
+                    "type": "torch.optim.AdamW",
+                    "lr": 0.00017410829103851313,
+                    "weight_decay": 0.4453810995755393
+                },
+                "batch_size": 4096,
+                "patience": 16,
+                "gradient_clipping_norm": 1.0,
+                "amp_dtype": "bfloat16",
+                "num_dtype": "bfloat16",
+                "model_num_embeddings_bins": {
+                    "n_bins": 2
+                }
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.mlp.main",
+                "n_parameters": 2826369,
+                "prediction_type": "labels",
+                "batch_size": 4096,
+                "epoch_size": 1250,
+                "best_step": 51250,
+                "metrics": {
+                    "train": {
+                        "rmse": 1.3128200322484243,
+                        "mae": 0.955106258392334,
+                        "r2": 0.8859288096427917,
+                        "score": -1.3128200322484243
+                    },
+                    "val_iid": {
+                        "rmse": 1.3311350651945377,
+                        "mae": 0.9707579612731934,
+                        "r2": 0.8835342526435852,
+                        "score": -1.3311350651945377
+                    },
+                    "val": {
+                        "rmse": 1.5254779160613068,
+                        "mae": 1.1077085733413696,
+                        "r2": 0.8534696698188782,
+                        "score": -1.5254779160613068
+                    },
+                    "test_iid": {
+                        "rmse": 1.3290646987276167,
+                        "mae": 0.9682911038398743,
+                        "r2": 0.8835497498512268,
+                        "score": -1.3290646987276167
+                    },
+                    "test": {
+                        "rmse": 1.450454883913931,
+                        "mae": 1.0561046600341797,
+                        "r2": 0.8581935167312622,
+                        "score": -1.450454883913931
+                    }
+                },
+                "time": 336.5620188228786,
+                "eval_batch_size": 32768,
+                "evaluation": {
+                    "worker_id": 0
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        }
+    ],
+    "time": 3027.530686210841,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

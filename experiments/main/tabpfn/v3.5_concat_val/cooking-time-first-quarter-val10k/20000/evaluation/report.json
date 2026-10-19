@@ -1,0 +1,65 @@
+{
+    "function": "lib.tools.evaluate.main",
+    "experiments": [
+        {
+            "config": {
+                "seed": 0,
+                "data": {
+                    "dataset_dir": "data/cooking-time-first-quarter-val10k",
+                    "train": {
+                        "size": 20000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": null,
+                    "cat_transform": null
+                },
+                "model": {
+                    "model_path": "checkpoints/tabpfn-v3/tabpfn-v3.5-20260909.safetensors"
+                },
+                "eval_parts": [
+                    "test"
+                ],
+                "concat_val": true,
+                "test_only": true
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.tabpfn_.main",
+                "prediction_type": "labels",
+                "timings": {
+                    "fit": 4.314070573076606,
+                    "predict_test": 45.210007142974064
+                },
+                "time": 49.524970554048195,
+                "metrics": {
+                    "test": {
+                        "rmse": 0.487131871711163,
+                        "mae": 0.3814146816730499,
+                        "r2": 0.4709293842315674,
+                        "score": -0.487131871711163
+                    }
+                },
+                "gpu-cost": {
+                    "max-mem-alloc-mb": 5700.359375,
+                    "max-mem-reserved-mb": 11060.0
+                },
+                "evaluation": {
+                    "worker_id": 0
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        }
+    ],
+    "time": 51.88658347609453,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

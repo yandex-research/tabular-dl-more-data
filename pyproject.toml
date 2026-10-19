@@ -1,0 +1,62 @@
+[build-system]
+requires = ["uv_build>=0.11.19,<0.12.0"]
+build-backend = "uv_build"
+
+[project]
+name = "tabular-scaling"
+version = "0.1.0"
+description = "Experiments on scaling tabular learning"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "src/vendor/LICENSE-muon"]
+requires-python = ">=3.12,<4"
+dependencies = [
+    "cyclopts>=4.16.1,<5",
+    "lightgbm>=4.6,<5",
+    "numpy>=2,<3",
+    "optuna>=4,<5",
+    "pandas>=2.3.3,<3",
+    "polars>=1.41.2,<2",
+    "rtdl_num_embeddings>=0.0.11,<0.1",
+    "rtdl_revisiting_models>=0.0.2,<0.1",
+    "scikit-learn>=1.3,<2",
+    "scipy>=1.11,<2",
+    "tabm>=0.0.3,<0.1",
+    "torch>=2.0.1,<3",
+    "tqdm>=4.66,<5",
+    "xgboost>=3,<4",
+]
+
+[project.scripts]
+preprocess = "preprocessing.run:main"
+evaluate = "lib.tools.evaluate:script"
+exp = "lib.tools._exp:script"
+tune = "lib.tools.tune:script"
+
+[dependency-groups]
+foundation = ["tabicl>=2.2.0", "tabpfn>=9.0.0"]
+kumo = ["structured-data-models"]
+
+[tool.uv]
+default-groups = []
+
+[tool.uv.build-backend]
+module-name = ["lib", "preprocessing", "project", "vendor"]
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.uv.sources]
+structured-data-models = { git = "https://github.com/NVIDIA/structured-data-models.git", rev = "5d663369ff8ead4a78c910dbb8483d558e46627b" }
+torch = [
+    { index = "pytorch-cu126", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+[tool.ruff]
+line-length = 88
+extend-exclude = ["src/vendor"]
+
+[tool.ruff.format]
+quote-style = "single"

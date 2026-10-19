@@ -1,0 +1,118 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/bank-fraud-datafusion",
+                "train": {
+                    "size": 40000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 5,
+                    "d_block": 704,
+                    "dropout": 0.44406113208888853,
+                    "arch_type": "tabm",
+                    "k": 16
+                },
+                "type": "tabm"
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.00017458944115326364,
+                "weight_decay": 0.12197474406767302,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.017216409518702725
+                }
+            },
+            "batch_size": 512,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "share_training_batches": false,
+            "compile": true
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.tabm_.main",
+            "n_parameters": 2427200,
+            "prediction_type": "probs",
+            "batch_size": 512,
+            "epoch_size": 79,
+            "best_step": 4977,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.996025,
+                    "f1-score": 0.0,
+                    "average-precision": 0.4439462091316509,
+                    "roc-auc": 0.9778394274473737,
+                    "cross-entropy": 0.03599342331290245,
+                    "score": 0.4439462091316509
+                },
+                "val_iid": {
+                    "accuracy": 0.9947183336943572,
+                    "f1-score": 0.0,
+                    "average-precision": 0.0847167966722288,
+                    "roc-auc": 0.82531399824025,
+                    "cross-entropy": 0.04486800730228424,
+                    "score": 0.0847167966722288
+                },
+                "val": {
+                    "accuracy": 0.9947183336943572,
+                    "f1-score": 0.0,
+                    "average-precision": 0.054949297043454935,
+                    "roc-auc": 0.8084554892153684,
+                    "cross-entropy": 0.04246549680829048,
+                    "score": 0.054949297043454935
+                },
+                "test_iid": {
+                    "accuracy": 0.9941717354598532,
+                    "f1-score": 0.0,
+                    "average-precision": 0.0992069853452401,
+                    "roc-auc": 0.8329534650226809,
+                    "cross-entropy": 0.04587358608841896,
+                    "score": 0.0992069853452401
+                },
+                "test": {
+                    "accuracy": 0.9941717354598532,
+                    "f1-score": 0.0,
+                    "average-precision": 0.056449213265581485,
+                    "roc-auc": 0.8157944778836642,
+                    "cross-entropy": 0.04453736171126366,
+                    "score": 0.056449213265581485
+                }
+            },
+            "time": 308.2158088979777,
+            "eval_batch_size": 2048,
+            "tuning": {
+                "trial_id": 94,
+                "time": 9728.94454513595,
+                "worker_id": 0
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 10190.015518466942,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

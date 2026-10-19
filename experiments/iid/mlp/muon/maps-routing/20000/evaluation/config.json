@@ -1,0 +1,42 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/maps-routing",
+            "train": {
+                "size": 20000,
+                "sampling": "random"
+            },
+            "val_key": "iid",
+            "test_key": "time"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 4,
+                "d_block": 768,
+                "dropout": 0.0
+            }
+        },
+        "optimizer": {
+            "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+            "lr": 3.25110438011688e-05,
+            "weight_decay": 1.235592793018039,
+            "betas": [
+                0.9,
+                0.999
+            ],
+            "eps": 1e-08,
+            "muon": {
+                "lr": 0.0004204264679368047
+            }
+        },
+        "batch_size": 256,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16"
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

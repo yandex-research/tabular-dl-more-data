@@ -1,0 +1,118 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/aeolus-flight-delay",
+                "train": {
+                    "size": 80000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 5,
+                    "d_block": 384,
+                    "dropout": 0.0,
+                    "arch_type": "tabm",
+                    "k": 16
+                },
+                "type": "tabm"
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.0008641876277968898,
+                "weight_decay": 0.7026330326783597,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.032774325586586106
+                }
+            },
+            "batch_size": 512,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "share_training_batches": false,
+            "compile": true
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.tabm_.main",
+            "n_parameters": 3033600,
+            "prediction_type": "probs",
+            "batch_size": 512,
+            "epoch_size": 157,
+            "best_step": 3297,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.8313875,
+                    "f1-score": 0.0007407956144899622,
+                    "average-precision": 0.3410543234056536,
+                    "roc-auc": 0.7106981599494171,
+                    "cross-entropy": 0.4150133728981018,
+                    "score": 0.3410543234056536
+                },
+                "val_iid": {
+                    "accuracy": 0.83089,
+                    "f1-score": 0.00047284118446716707,
+                    "average-precision": 0.3142186202819961,
+                    "roc-auc": 0.6919021797169345,
+                    "cross-entropy": 0.42192742228507996,
+                    "score": 0.3142186202819961
+                },
+                "val": {
+                    "accuracy": 0.80339,
+                    "f1-score": 0.0007115628970775095,
+                    "average-precision": 0.3586901764263725,
+                    "roc-auc": 0.6907131561569937,
+                    "cross-entropy": 0.4613804817199707,
+                    "score": 0.3586901764263725
+                },
+                "test_iid": {
+                    "accuracy": 0.83056,
+                    "f1-score": 0.0007077140835102619,
+                    "average-precision": 0.3175079555492384,
+                    "roc-auc": 0.6899186689666722,
+                    "cross-entropy": 0.4226568043231964,
+                    "score": 0.3175079555492384
+                },
+                "test": {
+                    "accuracy": 0.79943,
+                    "f1-score": 0.0004983305925150745,
+                    "average-precision": 0.35399786644346,
+                    "roc-auc": 0.6887173075469614,
+                    "cross-entropy": 0.46825480461120605,
+                    "score": 0.35399786644346
+                }
+            },
+            "time": 224.0827421299182,
+            "eval_batch_size": 2048,
+            "tuning": {
+                "trial_id": 85,
+                "time": 9482.737929745112,
+                "worker_id": 0
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 11087.926642785082,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/istella",
+            "train": {
+                "size": 320000,
+                "sampling": "random"
+            },
+            "val_key": "core",
+            "test_key": "core",
+            "num_transform": "noisy-quantile"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 3,
+                "d_block": 912,
+                "dropout": 0.359792010841724
+            },
+            "num_embeddings": {
+                "type": "PiecewiseLinearEmbeddings",
+                "d_embedding": 20,
+                "activation": false,
+                "version": "B"
+            }
+        },
+        "optimizer": {
+            "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+            "lr": 0.00026170585801037205,
+            "weight_decay": 0.2949767968503432,
+            "betas": [
+                0.9,
+                0.999
+            ],
+            "eps": 1e-08,
+            "muon": {
+                "lr": 0.0002419963387886902
+            }
+        },
+        "batch_size": 1024,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "model_num_embeddings_bins": {
+            "n_bins": 110
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

@@ -1,0 +1,117 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/aeolus-flight-delay",
+                "train": {
+                    "size": 640000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 6,
+                    "d_block": 720,
+                    "dropout": 0.43310336478928824
+                },
+                "num_embeddings": {
+                    "type": "PiecewiseLinearEmbeddings",
+                    "d_embedding": 28,
+                    "activation": false,
+                    "version": "B"
+                }
+            },
+            "optimizer": {
+                "type": "torch.optim.AdamW",
+                "lr": 0.0007468640467439813,
+                "weight_decay": 0.02136821562486692
+            },
+            "batch_size": 1024,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "model_num_embeddings_bins": {
+                "n_bins": 115
+            }
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "n_parameters": 8347177,
+            "prediction_type": "logits",
+            "batch_size": 1024,
+            "epoch_size": 625,
+            "best_step": 625,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.8324203125,
+                    "f1-score": 0.06553806208777326,
+                    "average-precision": 0.3286807156303244,
+                    "roc-auc": 0.7010856936057512,
+                    "cross-entropy": 0.41713330149650574,
+                    "score": 0.3286807156303244
+                },
+                "val_iid": {
+                    "accuracy": 0.83138,
+                    "f1-score": 0.0611358574610245,
+                    "average-precision": 0.3180613751224324,
+                    "roc-auc": 0.6957517574452567,
+                    "cross-entropy": 0.42014098167419434,
+                    "score": 0.3180613751224324
+                },
+                "val": {
+                    "accuracy": 0.80584,
+                    "f1-score": 0.07153787299158378,
+                    "average-precision": 0.3629617981564726,
+                    "roc-auc": 0.6925612279730692,
+                    "cross-entropy": 0.45973414182662964,
+                    "score": 0.3629617981564726
+                },
+                "test_iid": {
+                    "accuracy": 0.83133,
+                    "f1-score": 0.06143230760669968,
+                    "average-precision": 0.32180287978550837,
+                    "roc-auc": 0.6950813026438811,
+                    "cross-entropy": 0.42055535316467285,
+                    "score": 0.32180287978550837
+                },
+                "test": {
+                    "accuracy": 0.80133,
+                    "f1-score": 0.07676936660625494,
+                    "average-precision": 0.36278763808214565,
+                    "roc-auc": 0.6911782952368812,
+                    "cross-entropy": 0.46582430601119995,
+                    "score": 0.36278763808214565
+                }
+            },
+            "time": 155.80286893993616,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 72,
+                "time": 7594.203757443,
+                "worker_id": 1
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 10348.050857923925,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "resumed_after_n_trials": [
+        58
+    ],
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

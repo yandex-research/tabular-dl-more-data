@@ -1,0 +1,38 @@
+{
+    "seed": 5,
+    "data": {
+        "dataset_dir": "data/bank-fraud-datafusion",
+        "train": {
+            "size": 5120000,
+            "sampling": "random"
+        },
+        "val_key": "iid",
+        "test_key": "time",
+        "num_transform": "noisy-quantile"
+    },
+    "model": {
+        "backbone": {
+            "n_blocks": 2,
+            "d_block": 1024,
+            "dropout": 0.0
+        }
+    },
+    "optimizer": {
+        "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+        "lr": 0.0006403645403185801,
+        "weight_decay": 0.10239207383457302,
+        "betas": [
+            0.9,
+            0.999
+        ],
+        "eps": 1e-08,
+        "muon": {
+            "lr": 0.00010290530637340271
+        }
+    },
+    "batch_size": 4096,
+    "patience": 16,
+    "gradient_clipping_norm": 1.0,
+    "amp_dtype": "bfloat16",
+    "num_dtype": "bfloat16"
+}

@@ -1,0 +1,44 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/aeolus-flight-delay",
+            "train": {
+                "size": 80000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time",
+            "num_transform": "noisy-quantile"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 1,
+                "d_block": 80,
+                "dropout": 0.48257209495733244
+            },
+            "num_embeddings": {
+                "type": "PiecewiseLinearEmbeddings",
+                "d_embedding": 28,
+                "activation": false,
+                "version": "B"
+            }
+        },
+        "optimizer": {
+            "type": "torch.optim.AdamW",
+            "lr": 6.612767900161572e-05,
+            "weight_decay": 0.01639478051322788
+        },
+        "batch_size": 512,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "model_num_embeddings_bins": {
+            "n_bins": 109
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

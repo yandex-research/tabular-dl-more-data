@@ -1,0 +1,43 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/cooking-time",
+            "train": {
+                "size": 160000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 1,
+                "d_block": 576,
+                "dropout": 0.2718684495066463
+            },
+            "num_embeddings": {
+                "type": "PiecewiseLinearEmbeddings",
+                "d_embedding": 12,
+                "activation": false,
+                "version": "B"
+            }
+        },
+        "optimizer": {
+            "type": "torch.optim.AdamW",
+            "lr": 7.184359070688465e-05,
+            "weight_decay": 0.04070666740591602
+        },
+        "batch_size": 1024,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "model_num_embeddings_bins": {
+            "n_bins": 122
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

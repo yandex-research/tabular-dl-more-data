@@ -1,0 +1,38 @@
+{
+    "function": "project.xgboost_.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/maps-routing",
+            "train": {
+                "size": 10000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "booster": "gbtree",
+            "n_estimators": 10000,
+            "early_stopping_rounds": 300,
+            "n_jobs": 8,
+            "tree_method": "hist",
+            "device": "cuda",
+            "use_label_encoder": false,
+            "max_depth": 6,
+            "min_child_weight": 0.00014256863916879784,
+            "subsample": 0.5090927711113317,
+            "colsample_bytree": 0.8880235553752451,
+            "learning_rate": 0.0017416398304424241,
+            "gamma": 0.003035349455157416,
+            "alpha": 0.3179923621203953,
+            "lambda": 0.0036439035402083173,
+            "grow_policy": "lossguide"
+        },
+        "fit": {
+            "verbose": true
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

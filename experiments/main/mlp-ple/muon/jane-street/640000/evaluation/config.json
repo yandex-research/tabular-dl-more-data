@@ -1,0 +1,52 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/jane-street",
+            "train": {
+                "size": 640000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time",
+            "num_transform": "noisy-quantile"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 2,
+                "d_block": 176,
+                "dropout": 0.46805214829794406
+            },
+            "num_embeddings": {
+                "type": "PiecewiseLinearEmbeddings",
+                "d_embedding": 32,
+                "activation": false,
+                "version": "B"
+            }
+        },
+        "optimizer": {
+            "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+            "lr": 0.0005531017596294475,
+            "weight_decay": 0.11234201991952926,
+            "betas": [
+                0.9,
+                0.999
+            ],
+            "eps": 1e-08,
+            "muon": {
+                "lr": 0.0006613095210446522
+            }
+        },
+        "batch_size": 1024,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "model_num_embeddings_bins": {
+            "n_bins": 41
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

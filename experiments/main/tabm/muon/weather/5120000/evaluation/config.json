@@ -1,0 +1,48 @@
+{
+    "function": "project.tabm_.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/weather",
+            "train": {
+                "size": 5120000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time",
+            "num_transform": "noisy-quantile"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 4,
+                "d_block": 432,
+                "dropout": 0.0,
+                "arch_type": "tabm",
+                "k": 16
+            },
+            "type": "tabm"
+        },
+        "optimizer": {
+            "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+            "lr": 0.00018759688975200845,
+            "weight_decay": 0.006764501415837006,
+            "betas": [
+                0.9,
+                0.999
+            ],
+            "eps": 1e-08,
+            "muon": {
+                "lr": 0.013602332135202955
+            }
+        },
+        "batch_size": 4096,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "share_training_batches": false,
+        "compile": true
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

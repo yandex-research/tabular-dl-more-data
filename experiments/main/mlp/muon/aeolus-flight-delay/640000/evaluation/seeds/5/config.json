@@ -1,0 +1,38 @@
+{
+    "seed": 5,
+    "data": {
+        "dataset_dir": "data/aeolus-flight-delay",
+        "train": {
+            "size": 640000,
+            "sampling": "random"
+        },
+        "val_key": "time",
+        "test_key": "time",
+        "num_transform": "noisy-quantile"
+    },
+    "model": {
+        "backbone": {
+            "n_blocks": 1,
+            "d_block": 976,
+            "dropout": 0.326022606891112
+        }
+    },
+    "optimizer": {
+        "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+        "lr": 0.00014404461230294846,
+        "weight_decay": 0.7917206616264965,
+        "betas": [
+            0.9,
+            0.999
+        ],
+        "eps": 1e-08,
+        "muon": {
+            "lr": 0.0005493235880128964
+        }
+    },
+    "batch_size": 1024,
+    "patience": 16,
+    "gradient_clipping_norm": 1.0,
+    "amp_dtype": "bfloat16",
+    "num_dtype": "bfloat16"
+}

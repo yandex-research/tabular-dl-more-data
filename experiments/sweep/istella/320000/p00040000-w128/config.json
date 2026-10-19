@@ -1,0 +1,62 @@
+{
+    "data": {
+        "dataset_dir": "data/istella",
+        "train": {
+            "size": 320000,
+            "sampling": "random"
+        },
+        "val_key": "core",
+        "test_key": "core",
+        "num_transform": "noisy-quantile"
+    },
+    "model": {
+        "backbone": {
+            "n_blocks": 3,
+            "d_block": 128,
+            "dropout": 0.0
+        }
+    },
+    "optimizer": {
+        "type": "torch.optim.AdamW"
+    },
+    "batch_size": 1024,
+    "learning_rates": [
+        3e-05,
+        4.42924806582e-05,
+        6.53941280952e-05,
+        9.65489384606e-05,
+        0.000142546399644,
+        0.000210457788305,
+        0.000310723250595,
+        0.000458756785568,
+        0.000677315868387,
+        0.001
+    ],
+    "weight_decays": [
+        0.005,
+        0.0107721734502,
+        0.0232079441681,
+        0.05,
+        0.107721734502,
+        0.232079441681,
+        0.5,
+        1.07721734502,
+        2.32079441681,
+        5.0
+    ],
+    "seeds": [
+        0
+    ],
+    "n_steps": 100000,
+    "eval_every_n_steps": 1000,
+    "eval_parts": [
+        "val",
+        "test",
+        "val_iid",
+        "test_iid"
+    ],
+    "checkpoint_every_n_steps": 5000,
+    "gradient_clipping_norm": 1.0,
+    "amp_dtype": "bfloat16",
+    "num_dtype": "bfloat16"
+}

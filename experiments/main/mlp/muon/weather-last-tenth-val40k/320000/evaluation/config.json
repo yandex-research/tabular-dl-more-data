@@ -1,0 +1,43 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/weather-last-tenth-val40k",
+            "train": {
+                "size": 320000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time",
+            "num_transform": "noisy-quantile"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 5,
+                "d_block": 496,
+                "dropout": 0.0
+            }
+        },
+        "optimizer": {
+            "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+            "lr": 7.472101575750604e-05,
+            "weight_decay": 0.8940632569365127,
+            "betas": [
+                0.9,
+                0.999
+            ],
+            "eps": 1e-08,
+            "muon": {
+                "lr": 0.0017883562358050084
+            }
+        },
+        "batch_size": 1024,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16"
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

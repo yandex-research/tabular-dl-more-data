@@ -1,0 +1,35 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/jane-street",
+            "train": {
+                "size": 20000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time",
+            "num_transform": "noisy-quantile"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 6,
+                "d_block": 816,
+                "dropout": 0.22952928574426062
+            }
+        },
+        "optimizer": {
+            "type": "torch.optim.AdamW",
+            "lr": 0.00017818944111334484,
+            "weight_decay": 0.016410039898463957
+        },
+        "batch_size": 256,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16"
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

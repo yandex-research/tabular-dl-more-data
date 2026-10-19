@@ -1,0 +1,100 @@
+{
+    "function": "lib.tools.tune.main",
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    },
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/bank-fraud-datafusion",
+                "train": {
+                    "size": 640000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time"
+            },
+            "model": {
+                "n_estimators": 10000,
+                "stopping_rounds": 300,
+                "device_type": "gpu",
+                "verbose": -1,
+                "n_jobs": 8,
+                "feature_fraction": 0.5089140145721645,
+                "lambda_l2": 3.41341776112562,
+                "learning_rate": 0.011429550134992564,
+                "num_leaves": 8,
+                "min_child_samples": 191,
+                "min_sum_hessian_in_leaf": 0.001,
+                "bagging_fraction": 0.6763936757388441,
+                "bagging_freq": 1,
+                "extra_trees": true
+            },
+            "fit": {}
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.lightgbm_.main",
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            },
+            "time": 223.99656508117914,
+            "best_iteration": 4275,
+            "prediction_type": "probs",
+            "metrics": {
+                "train": {
+                    "accuracy": 0.9965625,
+                    "f1-score": 0.06542056074766354,
+                    "average-precision": 0.2280654164682578,
+                    "roc-auc": 0.9259177683123343,
+                    "cross-entropy": 0.015559167397386381,
+                    "score": 0.2280654164682578
+                },
+                "val_iid": {
+                    "accuracy": 0.994747102783494,
+                    "f1-score": 0.03900928792569659,
+                    "average-precision": 0.14900021782996262,
+                    "roc-auc": 0.876532352383352,
+                    "cross-entropy": 0.024968874007752842,
+                    "score": 0.14900021782996262
+                },
+                "val": {
+                    "accuracy": 0.9945135654716777,
+                    "f1-score": 0.017575757575757574,
+                    "average-precision": 0.06847137083552708,
+                    "roc-auc": 0.8479958828314754,
+                    "cross-entropy": 0.027482198409306654,
+                    "score": 0.06847137083552708
+                },
+                "test_iid": {
+                    "accuracy": 0.9941937736910986,
+                    "f1-score": 0.03602589361103293,
+                    "average-precision": 0.16758052967549475,
+                    "roc-auc": 0.8825605829324146,
+                    "cross-entropy": 0.026853210801743018,
+                    "score": 0.16758052967549475
+                },
+                "test": {
+                    "accuracy": 0.9939055814363502,
+                    "f1-score": 0.02016898337421641,
+                    "average-precision": 0.07563218169066177,
+                    "roc-auc": 0.8583146681836263,
+                    "cross-entropy": 0.029806461677386407,
+                    "score": 0.07563218169066177
+                }
+            },
+            "tuning": {
+                "trial_id": 90,
+                "time": 8195.614392345771,
+                "worker_id": 0
+            }
+        }
+    },
+    "time": 9690.008232587948,
+    "n_completed_trials": 100,
+    "worker_id": 0
+}

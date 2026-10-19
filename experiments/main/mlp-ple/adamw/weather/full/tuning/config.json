@@ -1,0 +1,93 @@
+{
+    "seed": 0,
+    "objective": {
+        "function": "project.mlp.main",
+        "output_keys": [
+            "metrics",
+            "val",
+            "score"
+        ]
+    },
+    "space": {
+        "seed": 0,
+        "data": {
+            "dataset_dir": "data/weather",
+            "train": {
+                "size": "full",
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time",
+            "num_transform": "noisy-quantile"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": [
+                    "_tune_",
+                    "int",
+                    1,
+                    6
+                ],
+                "d_block": [
+                    "_tune_",
+                    "int",
+                    64,
+                    1024,
+                    16
+                ],
+                "dropout": [
+                    "_tune_",
+                    "?uniform",
+                    0.0,
+                    0.0,
+                    0.5
+                ]
+            },
+            "num_embeddings": {
+                "type": "PiecewiseLinearEmbeddings",
+                "d_embedding": [
+                    "_tune_",
+                    "int",
+                    8,
+                    32,
+                    4
+                ],
+                "activation": false,
+                "version": "B"
+            }
+        },
+        "optimizer": {
+            "type": "torch.optim.AdamW",
+            "lr": [
+                "_tune_",
+                "loguniform",
+                3e-05,
+                0.001
+            ],
+            "weight_decay": [
+                "_tune_",
+                "loguniform",
+                0.005,
+                5.0
+            ]
+        },
+        "batch_size": 4096,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "model_num_embeddings_bins": {
+            "n_bins": [
+                "_tune_",
+                "int",
+                2,
+                128
+            ]
+        }
+    },
+    "sampler": {
+        "type": "TPESampler"
+    },
+    "n_trials": 100,
+    "n_workers": 2
+}

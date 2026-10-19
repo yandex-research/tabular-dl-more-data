@@ -1,0 +1,35 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/weather",
+            "train": {
+                "size": 640000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time",
+            "num_transform": "noisy-quantile"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 5,
+                "d_block": 768,
+                "dropout": 0.343397913531566
+            }
+        },
+        "optimizer": {
+            "type": "torch.optim.AdamW",
+            "lr": 6.891721884041838e-05,
+            "weight_decay": 0.8922868750422464
+        },
+        "batch_size": 1024,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16"
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

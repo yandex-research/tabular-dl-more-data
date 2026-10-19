@@ -1,0 +1,83 @@
+{
+    "seed": 0,
+    "objective": {
+        "function": "project.lightgbm_.main",
+        "output_keys": [
+            "metrics",
+            "val",
+            "score"
+        ]
+    },
+    "space": {
+        "seed": 0,
+        "data": {
+            "dataset_dir": "data/istella",
+            "train": {
+                "size": 1280000,
+                "sampling": "random"
+            },
+            "val_key": "iid",
+            "test_key": "core"
+        },
+        "model": {
+            "n_estimators": 10000,
+            "stopping_rounds": 300,
+            "device_type": "gpu",
+            "verbose": -1,
+            "n_jobs": 8,
+            "feature_fraction": [
+                "_tune_",
+                "uniform",
+                0.5,
+                1.0
+            ],
+            "lambda_l2": [
+                "_tune_",
+                "?loguniform",
+                0.0,
+                0.1,
+                10.0
+            ],
+            "learning_rate": [
+                "_tune_",
+                "loguniform",
+                0.005,
+                0.1
+            ],
+            "num_leaves": [
+                "_tune_",
+                "int",
+                2,
+                256
+            ],
+            "min_child_samples": [
+                "_tune_",
+                "int",
+                5,
+                256
+            ],
+            "min_sum_hessian_in_leaf": 0.001,
+            "bagging_fraction": [
+                "_tune_",
+                "uniform",
+                0.5,
+                1.0
+            ],
+            "bagging_freq": 1,
+            "extra_trees": [
+                "_tune_",
+                "categorical",
+                [
+                    false,
+                    true
+                ]
+            ]
+        },
+        "fit": {}
+    },
+    "sampler": {
+        "type": "TPESampler"
+    },
+    "n_trials": 100,
+    "n_workers": 2
+}

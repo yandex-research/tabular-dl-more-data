@@ -1,0 +1,6 @@
+from typing import Any
+
+type KWArgs = dict[str, Any]
+
+type DataKey = str  # 'x', 'y', ...
+type PartKey = str  # 'train', 'test', ...

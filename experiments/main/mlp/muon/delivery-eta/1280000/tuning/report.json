@@ -1,0 +1,102 @@
+{
+    "function": "lib.tools.tune.main",
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    },
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/delivery-eta",
+                "train": {
+                    "size": 1280000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 5,
+                    "d_block": 448,
+                    "dropout": 0.0
+                }
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 6.473631817908792e-05,
+                "weight_decay": 0.5696088488369528,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.0009434836337649106
+                }
+            },
+            "batch_size": 2048,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16"
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            },
+            "n_parameters": 904961,
+            "prediction_type": "labels",
+            "batch_size": 2048,
+            "epoch_size": 625,
+            "best_step": 28125,
+            "metrics": {
+                "train": {
+                    "rmse": 0.513283267082536,
+                    "mae": 0.4008903205394745,
+                    "r2": 0.5062030553817749,
+                    "score": -0.513283267082536
+                },
+                "val_iid": {
+                    "rmse": 0.522136152335114,
+                    "mae": 0.4083865284919739,
+                    "r2": 0.4846333861351013,
+                    "score": -0.522136152335114
+                },
+                "val": {
+                    "rmse": 0.5568806181088017,
+                    "mae": 0.4401204288005829,
+                    "r2": 0.4152070879936218,
+                    "score": -0.5568806181088017
+                },
+                "test_iid": {
+                    "rmse": 0.5241449613984543,
+                    "mae": 0.40894371271133423,
+                    "r2": 0.4833170771598816,
+                    "score": -0.5241449613984543
+                },
+                "test": {
+                    "rmse": 0.5464949240767255,
+                    "mae": 0.43494758009910583,
+                    "r2": 0.44347935914993286,
+                    "score": -0.5464949240767255
+                }
+            },
+            "time": 325.8645835435018,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 65,
+                "time": 4762.292467531748,
+                "worker_id": 0
+            }
+        }
+    },
+    "time": 8851.01389906928,
+    "n_completed_trials": 100,
+    "worker_id": 0
+}

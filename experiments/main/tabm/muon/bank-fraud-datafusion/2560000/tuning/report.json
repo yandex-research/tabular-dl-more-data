@@ -1,0 +1,122 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/bank-fraud-datafusion",
+                "train": {
+                    "size": 2560000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 5,
+                    "d_block": 288,
+                    "dropout": 0.04521031183233186,
+                    "arch_type": "tabm",
+                    "k": 16
+                },
+                "type": "tabm"
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.0002933825260351298,
+                "weight_decay": 0.08494176808809413,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.003030137576280151
+                }
+            },
+            "batch_size": 2048,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "share_training_batches": false,
+            "compile": true
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.tabm_.main",
+            "n_parameters": 628304,
+            "prediction_type": "probs",
+            "batch_size": 2048,
+            "epoch_size": 1250,
+            "best_step": 47500,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.996541796875,
+                    "f1-score": 0.010506314965910361,
+                    "average-precision": 0.18957745101450024,
+                    "roc-auc": 0.9140774786527582,
+                    "cross-entropy": 0.015823641791939735,
+                    "score": 0.18957745101450024
+                },
+                "val_iid": {
+                    "accuracy": 0.9947200259937182,
+                    "f1-score": 0.0057361376673040155,
+                    "average-precision": 0.16898518332349227,
+                    "roc-auc": 0.8881130300445823,
+                    "cross-entropy": 0.024243537336587906,
+                    "score": 0.16898518332349227
+                },
+                "val": {
+                    "accuracy": 0.9947014107007474,
+                    "f1-score": 0.0012759170653907496,
+                    "average-precision": 0.07816725398237293,
+                    "roc-auc": 0.8595890503011375,
+                    "cross-entropy": 0.02636704593896866,
+                    "score": 0.07816725398237293
+                },
+                "test_iid": {
+                    "accuracy": 0.9941886879454266,
+                    "f1-score": 0.008675534991324466,
+                    "average-precision": 0.19318195259905152,
+                    "roc-auc": 0.8926239161506602,
+                    "cross-entropy": 0.026013514026999474,
+                    "score": 0.19318195259905152
+                },
+                "test": {
+                    "accuracy": 0.9941649544656237,
+                    "f1-score": 0.0011607661056297156,
+                    "average-precision": 0.08420707795389346,
+                    "roc-auc": 0.8688036525903563,
+                    "cross-entropy": 0.02838847041130066,
+                    "score": 0.08420707795389346
+                }
+            },
+            "time": 1152.7005054727197,
+            "eval_batch_size": 2048,
+            "tuning": {
+                "trial_id": 90,
+                "time": 61592.52032477781,
+                "worker_id": 1
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 66336.43278143927,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "resumed_after_n_trials": [
+        37,
+        39
+    ],
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

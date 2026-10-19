@@ -1,0 +1,121 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/aeolus-flight-delay",
+                "train": {
+                    "size": 640000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 3,
+                    "d_block": 800,
+                    "dropout": 0.0,
+                    "arch_type": "tabm",
+                    "k": 16
+                },
+                "type": "tabm"
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.0004928923787810649,
+                "weight_decay": 0.10445975096107345,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.02909832432385015
+                }
+            },
+            "batch_size": 1024,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "share_training_batches": false,
+            "compile": true
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.tabm_.main",
+            "n_parameters": 6205536,
+            "prediction_type": "probs",
+            "batch_size": 1024,
+            "epoch_size": 625,
+            "best_step": 5000,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.8336875,
+                    "f1-score": 0.05219853609018539,
+                    "average-precision": 0.3621345879937085,
+                    "roc-auc": 0.7192228807170231,
+                    "cross-entropy": 0.409793496131897,
+                    "score": 0.3621345879937085
+                },
+                "val_iid": {
+                    "accuracy": 0.83197,
+                    "f1-score": 0.04512132749900551,
+                    "average-precision": 0.33430658171207306,
+                    "roc-auc": 0.7040877444866509,
+                    "cross-entropy": 0.41642361879348755,
+                    "score": 0.33430658171207306
+                },
+                "val": {
+                    "accuracy": 0.80502,
+                    "f1-score": 0.04515181194906954,
+                    "average-precision": 0.36495659087816495,
+                    "roc-auc": 0.6968177364349663,
+                    "cross-entropy": 0.45788124203681946,
+                    "score": 0.36495659087816495
+                },
+                "test_iid": {
+                    "accuracy": 0.83206,
+                    "f1-score": 0.044492489758761945,
+                    "average-precision": 0.3401861566747494,
+                    "roc-auc": 0.7045541186033902,
+                    "cross-entropy": 0.41629084944725037,
+                    "score": 0.3401861566747494
+                },
+                "test": {
+                    "accuracy": 0.80114,
+                    "f1-score": 0.04705769599386621,
+                    "average-precision": 0.369947352529707,
+                    "roc-auc": 0.6968457387407456,
+                    "cross-entropy": 0.46342337131500244,
+                    "score": 0.369947352529707
+                }
+            },
+            "time": 408.16852482035756,
+            "eval_batch_size": 2048,
+            "tuning": {
+                "trial_id": 82,
+                "time": 16328.114277815446,
+                "worker_id": 0
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 20509.253064950928,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "resumed_after_n_trials": [
+        10
+    ],
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

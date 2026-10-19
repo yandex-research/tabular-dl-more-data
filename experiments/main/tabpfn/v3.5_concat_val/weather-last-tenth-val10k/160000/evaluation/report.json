@@ -1,0 +1,68 @@
+{
+    "function": "lib.tools.evaluate.main",
+    "resumed_after_n_seeds": [
+        0
+    ],
+    "experiments": [
+        {
+            "config": {
+                "seed": 0,
+                "data": {
+                    "dataset_dir": "data/weather-last-tenth-val10k",
+                    "train": {
+                        "size": 160000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": null,
+                    "cat_transform": null
+                },
+                "model": {
+                    "model_path": "checkpoints/tabpfn-v3/tabpfn-v3.5-20260909.safetensors"
+                },
+                "eval_parts": [
+                    "test"
+                ],
+                "concat_val": true,
+                "test_only": true
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.tabpfn_.main",
+                "prediction_type": "labels",
+                "timings": {
+                    "fit": 7.189292414113879,
+                    "predict_test": 219.48105798312463
+                },
+                "time": 226.67128493404016,
+                "metrics": {
+                    "test": {
+                        "rmse": 1.4809364244465606,
+                        "mae": 1.0813847780227661,
+                        "r2": 0.8521707057952881,
+                        "score": -1.4809364244465606
+                    }
+                },
+                "gpu-cost": {
+                    "max-mem-alloc-mb": 8736.71435546875,
+                    "max-mem-reserved-mb": 13550.0
+                },
+                "evaluation": {
+                    "worker_id": 0
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        }
+    ],
+    "time": 228.5769088449888,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

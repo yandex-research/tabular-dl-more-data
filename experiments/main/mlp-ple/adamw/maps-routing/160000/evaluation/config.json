@@ -1,0 +1,43 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/maps-routing",
+            "train": {
+                "size": 160000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 1,
+                "d_block": 560,
+                "dropout": 0.41116268556778407
+            },
+            "num_embeddings": {
+                "type": "PiecewiseLinearEmbeddings",
+                "d_embedding": 28,
+                "activation": false,
+                "version": "B"
+            }
+        },
+        "optimizer": {
+            "type": "torch.optim.AdamW",
+            "lr": 5.135344630994226e-05,
+            "weight_decay": 4.301049084653696
+        },
+        "batch_size": 1024,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "model_num_embeddings_bins": {
+            "n_bins": 38
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

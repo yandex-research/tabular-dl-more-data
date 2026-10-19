@@ -1,0 +1,43 @@
+{
+    "function": "project.mlp.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/delivery-eta",
+            "train": {
+                "size": "full",
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 2,
+                "d_block": 256,
+                "dropout": 0.06937261891681246
+            },
+            "num_embeddings": {
+                "type": "PiecewiseLinearEmbeddings",
+                "d_embedding": 20,
+                "activation": false,
+                "version": "B"
+            }
+        },
+        "optimizer": {
+            "type": "torch.optim.AdamW",
+            "lr": 0.0001325306990951067,
+            "weight_decay": 0.828064908714145
+        },
+        "batch_size": 4096,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "model_num_embeddings_bins": {
+            "n_bins": 68
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

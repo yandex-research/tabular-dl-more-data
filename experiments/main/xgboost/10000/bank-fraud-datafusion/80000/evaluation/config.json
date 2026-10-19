@@ -1,0 +1,38 @@
+{
+    "function": "project.xgboost_.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/bank-fraud-datafusion",
+            "train": {
+                "size": 80000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "booster": "gbtree",
+            "n_estimators": 10000,
+            "early_stopping_rounds": 300,
+            "n_jobs": 8,
+            "tree_method": "hist",
+            "device": "cuda",
+            "use_label_encoder": false,
+            "max_depth": 3,
+            "min_child_weight": 0.2724618596577915,
+            "subsample": 0.6041225628934371,
+            "colsample_bytree": 0.5425772864904804,
+            "learning_rate": 0.005624494563288948,
+            "gamma": 0,
+            "alpha": 0.02012429814680241,
+            "lambda": 0.0,
+            "grow_policy": "depthwise"
+        },
+        "fit": {
+            "verbose": true
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

@@ -1,0 +1,118 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/aeolus-flight-delay",
+                "train": {
+                    "size": 20000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 5,
+                    "d_block": 624,
+                    "dropout": 0.0,
+                    "arch_type": "tabm",
+                    "k": 16
+                },
+                "type": "tabm"
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.0005993163799006971,
+                "weight_decay": 0.7771343202216763,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.07207831439135257
+                }
+            },
+            "batch_size": 256,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "share_training_batches": false,
+            "compile": true
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.tabm_.main",
+            "n_parameters": 5434000,
+            "prediction_type": "probs",
+            "batch_size": 256,
+            "epoch_size": 79,
+            "best_step": 2923,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.82685,
+                    "f1-score": 0.0,
+                    "average-precision": 0.3661363520165816,
+                    "roc-auc": 0.7310536906965822,
+                    "cross-entropy": 0.41743358969688416,
+                    "score": 0.3661363520165816
+                },
+                "val_iid": {
+                    "accuracy": 0.83086,
+                    "f1-score": 0.0,
+                    "average-precision": 0.303275605479204,
+                    "roc-auc": 0.6843085446103503,
+                    "cross-entropy": 0.42591574788093567,
+                    "score": 0.303275605479204
+                },
+                "val": {
+                    "accuracy": 0.80333,
+                    "f1-score": 0.0,
+                    "average-precision": 0.35418412524894183,
+                    "roc-auc": 0.6866461503683297,
+                    "cross-entropy": 0.461383581161499,
+                    "score": 0.35418412524894183
+                },
+                "test_iid": {
+                    "accuracy": 0.83052,
+                    "f1-score": 0.0,
+                    "average-precision": 0.3063085103836544,
+                    "roc-auc": 0.6841939203366094,
+                    "cross-entropy": 0.4262474477291107,
+                    "score": 0.3063085103836544
+                },
+                "test": {
+                    "accuracy": 0.7994,
+                    "f1-score": 0.0,
+                    "average-precision": 0.34958670764020955,
+                    "roc-auc": 0.6840405048302678,
+                    "cross-entropy": 0.4676503837108612,
+                    "score": 0.34958670764020955
+                }
+            },
+            "time": 254.35181024088524,
+            "eval_batch_size": 2048,
+            "tuning": {
+                "trial_id": 76,
+                "time": 4735.969497879036,
+                "worker_id": 0
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 6444.714156477014,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

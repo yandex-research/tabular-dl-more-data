@@ -1,0 +1,38 @@
+{
+    "function": "project.xgboost_.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/aeolus-flight-delay",
+            "train": {
+                "size": 640000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "booster": "gbtree",
+            "n_estimators": 10000,
+            "early_stopping_rounds": 300,
+            "n_jobs": 8,
+            "tree_method": "hist",
+            "device": "cuda",
+            "use_label_encoder": false,
+            "max_depth": 10,
+            "min_child_weight": 75.08879839571881,
+            "subsample": 0.5174792596472046,
+            "colsample_bytree": 0.6674209943909771,
+            "learning_rate": 0.0012445092150421366,
+            "gamma": 0.03639794965167101,
+            "alpha": 0.31570916984628306,
+            "lambda": 0.0,
+            "grow_policy": "depthwise"
+        },
+        "fit": {
+            "verbose": true
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

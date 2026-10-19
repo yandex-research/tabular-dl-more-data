@@ -1,0 +1,122 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/bank-fraud-datafusion",
+                "train": {
+                    "size": 80000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 1,
+                    "d_block": 912,
+                    "dropout": 0.36419470520381036
+                },
+                "num_embeddings": {
+                    "type": "PiecewiseLinearEmbeddings",
+                    "d_embedding": 12,
+                    "activation": false,
+                    "version": "B"
+                }
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.00037474225028170065,
+                "weight_decay": 0.049364935050165856,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.015218867777523766
+                }
+            },
+            "batch_size": 512,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "model_num_embeddings_bins": {
+                "n_bins": 45
+            }
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "n_parameters": 1241665,
+            "prediction_type": "logits",
+            "batch_size": 512,
+            "epoch_size": 157,
+            "best_step": 942,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.9966,
+                    "f1-score": 0.17575757575757575,
+                    "average-precision": 0.40764577402202423,
+                    "roc-auc": 0.968560130614054,
+                    "cross-entropy": 0.01341266930103302,
+                    "score": 0.40764577402202423
+                },
+                "val_iid": {
+                    "accuracy": 0.9946760262103325,
+                    "f1-score": 0.019937694704049845,
+                    "average-precision": 0.08741644220849423,
+                    "roc-auc": 0.8142148343785363,
+                    "cross-entropy": 0.028533047065138817,
+                    "score": 0.08741644220849423
+                },
+                "val": {
+                    "accuracy": 0.9946861800064984,
+                    "f1-score": 0.004438807863031071,
+                    "average-precision": 0.05041125742464281,
+                    "roc-auc": 0.7972773919447993,
+                    "cross-entropy": 0.03317680582404137,
+                    "score": 0.05041125742464281
+                },
+                "test_iid": {
+                    "accuracy": 0.9941581734713943,
+                    "f1-score": 0.022688598979013045,
+                    "average-precision": 0.10185736748266247,
+                    "roc-auc": 0.8242042560126293,
+                    "cross-entropy": 0.030671780928969383,
+                    "score": 0.10185736748266247
+                },
+                "test": {
+                    "accuracy": 0.9940920587776579,
+                    "f1-score": 0.006273167949814656,
+                    "average-precision": 0.05395143608057269,
+                    "roc-auc": 0.8110208306437457,
+                    "cross-entropy": 0.03541933745145798,
+                    "score": 0.05395143608057269
+                }
+            },
+            "time": 80.51071513909847,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 63,
+                "time": 5199.978677175939,
+                "worker_id": 1
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 7282.515433558263,
+    "n_completed_trials": 100,
+    "worker_id": 1,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

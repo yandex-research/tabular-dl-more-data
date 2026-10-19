@@ -1,0 +1,47 @@
+{
+    "function": "project.tabm_.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/delivery-eta",
+            "train": {
+                "size": 20000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 2,
+                "d_block": 464,
+                "dropout": 0.31721514504008796,
+                "arch_type": "tabm",
+                "k": 16
+            },
+            "type": "tabm"
+        },
+        "optimizer": {
+            "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+            "lr": 0.002171107246558875,
+            "weight_decay": 0.3959889039279666,
+            "betas": [
+                0.9,
+                0.999
+            ],
+            "eps": 1e-08,
+            "muon": {
+                "lr": 0.05399254139252923
+            }
+        },
+        "batch_size": 256,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "share_training_batches": false,
+        "compile": true
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

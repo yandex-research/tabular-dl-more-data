@@ -1,0 +1,122 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/bank-fraud-datafusion",
+                "train": {
+                    "size": 640000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 1,
+                    "d_block": 960,
+                    "dropout": 0.12501798468382644
+                },
+                "num_embeddings": {
+                    "type": "PiecewiseLinearEmbeddings",
+                    "d_embedding": 20,
+                    "activation": false,
+                    "version": "B"
+                }
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.0007540880579600455,
+                "weight_decay": 0.0067839812391859685,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.008188526986308741
+                }
+            },
+            "batch_size": 1024,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "model_num_embeddings_bins": {
+                "n_bins": 46
+            }
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "n_parameters": 2099521,
+            "prediction_type": "logits",
+            "batch_size": 1024,
+            "epoch_size": 625,
+            "best_step": 1875,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.9965609375,
+                    "f1-score": 0.07637431808644565,
+                    "average-precision": 0.1959833476270341,
+                    "roc-auc": 0.9160634032554256,
+                    "cross-entropy": 0.016641998663544655,
+                    "score": 0.1959833476270341
+                },
+                "val_iid": {
+                    "accuracy": 0.9947217182930792,
+                    "f1-score": 0.03882896764252696,
+                    "average-precision": 0.1320728332432477,
+                    "roc-auc": 0.8590926989090136,
+                    "cross-entropy": 0.025521721690893173,
+                    "score": 0.1320728332432477
+                },
+                "val": {
+                    "accuracy": 0.9946624878154446,
+                    "f1-score": 0.004419191919191919,
+                    "average-precision": 0.06713783996236876,
+                    "roc-auc": 0.8357421558997583,
+                    "cross-entropy": 0.02776343747973442,
+                    "score": 0.06713783996236876
+                },
+                "test_iid": {
+                    "accuracy": 0.9941530877257223,
+                    "f1-score": 0.030362665167275794,
+                    "average-precision": 0.1411725257705793,
+                    "roc-auc": 0.8658924274759486,
+                    "cross-entropy": 0.027271002531051636,
+                    "score": 0.1411725257705793
+                },
+                "test": {
+                    "accuracy": 0.9941191827545754,
+                    "f1-score": 0.008573878250928837,
+                    "average-precision": 0.0713619764102679,
+                    "roc-auc": 0.8467641419809228,
+                    "cross-entropy": 0.03042043372988701,
+                    "score": 0.0713619764102679
+                }
+            },
+            "time": 147.18010358838364,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 79,
+                "time": 10282.843742143828,
+                "worker_id": 1
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 11909.119526909199,
+    "n_completed_trials": 100,
+    "worker_id": 1,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "function": "project.xgboost_.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/cooking-time",
+            "train": {
+                "size": 80000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "booster": "gbtree",
+            "n_estimators": 10000,
+            "early_stopping_rounds": 300,
+            "n_jobs": 8,
+            "tree_method": "hist",
+            "device": "cuda",
+            "use_label_encoder": false,
+            "max_depth": 8,
+            "min_child_weight": 0.0002724863807039889,
+            "subsample": 0.6271237759481644,
+            "colsample_bytree": 0.8673935692188639,
+            "learning_rate": 0.00158976055213226,
+            "gamma": 0.08137289939724783,
+            "alpha": 0.0012605203424031232,
+            "lambda": 0.0,
+            "grow_policy": "lossguide"
+        },
+        "fit": {
+            "verbose": true
+        }
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

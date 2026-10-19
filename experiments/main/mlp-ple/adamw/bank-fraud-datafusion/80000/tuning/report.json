@@ -1,0 +1,114 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/bank-fraud-datafusion",
+                "train": {
+                    "size": 80000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 2,
+                    "d_block": 912,
+                    "dropout": 0.0
+                },
+                "num_embeddings": {
+                    "type": "PiecewiseLinearEmbeddings",
+                    "d_embedding": 16,
+                    "activation": false,
+                    "version": "B"
+                }
+            },
+            "optimizer": {
+                "type": "torch.optim.AdamW",
+                "lr": 0.0009258261775776135,
+                "weight_decay": 0.014426263917790933
+            },
+            "batch_size": 512,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "model_num_embeddings_bins": {
+                "n_bins": 11
+            }
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "n_parameters": 2337681,
+            "prediction_type": "logits",
+            "batch_size": 512,
+            "epoch_size": 157,
+            "best_step": 942,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.9964,
+                    "f1-score": 0.08860759493670886,
+                    "average-precision": 0.21292695569748724,
+                    "roc-auc": 0.928170627702285,
+                    "cross-entropy": 0.016875039786100388,
+                    "score": 0.21292695569748724
+                },
+                "val_iid": {
+                    "accuracy": 0.9947132567962742,
+                    "f1-score": 0.028002489110143122,
+                    "average-precision": 0.10094480434504133,
+                    "roc-auc": 0.8390800345130924,
+                    "cross-entropy": 0.026578648015856743,
+                    "score": 0.10094480434504133
+                },
+                "val": {
+                    "accuracy": 0.994464488790209,
+                    "f1-score": 0.030814814814814816,
+                    "average-precision": 0.05977048352185494,
+                    "roc-auc": 0.8146754244442058,
+                    "cross-entropy": 0.028739197179675102,
+                    "score": 0.05977048352185494
+                },
+                "test_iid": {
+                    "accuracy": 0.9941734307084105,
+                    "f1-score": 0.027172374752335127,
+                    "average-precision": 0.11553542310899259,
+                    "roc-auc": 0.8435132027795866,
+                    "cross-entropy": 0.028461985290050507,
+                    "score": 0.11553542310899259
+                },
+                "test": {
+                    "accuracy": 0.9938530287310725,
+                    "f1-score": 0.03048128342245989,
+                    "average-precision": 0.06471556876112272,
+                    "roc-auc": 0.8321952262676494,
+                    "cross-entropy": 0.030533932149410248,
+                    "score": 0.06471556876112272
+                }
+            },
+            "time": 71.17202174756676,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 88,
+                "time": 4892.853932076134,
+                "worker_id": 0
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 5375.101625402458,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

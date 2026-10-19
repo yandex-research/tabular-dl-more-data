@@ -1,0 +1,48 @@
+{
+    "function": "project.tabm_.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/istella",
+            "train": {
+                "size": 10000,
+                "sampling": "random"
+            },
+            "val_key": "core",
+            "test_key": "core",
+            "num_transform": "noisy-quantile"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 5,
+                "d_block": 656,
+                "dropout": 0.17120652648762516,
+                "arch_type": "tabm",
+                "k": 16
+            },
+            "type": "tabm"
+        },
+        "optimizer": {
+            "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+            "lr": 0.0021206277802770885,
+            "weight_decay": 0.0116986066817561,
+            "betas": [
+                0.9,
+                0.999
+            ],
+            "eps": 1e-08,
+            "muon": {
+                "lr": 0.0055242615596237665
+            }
+        },
+        "batch_size": 256,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "share_training_batches": false,
+        "compile": true
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

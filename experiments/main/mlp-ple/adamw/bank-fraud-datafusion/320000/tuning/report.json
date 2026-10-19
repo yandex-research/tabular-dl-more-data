@@ -1,0 +1,114 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/bank-fraud-datafusion",
+                "train": {
+                    "size": 320000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 6,
+                    "d_block": 832,
+                    "dropout": 0.0
+                },
+                "num_embeddings": {
+                    "type": "PiecewiseLinearEmbeddings",
+                    "d_embedding": 8,
+                    "activation": false,
+                    "version": "B"
+                }
+            },
+            "optimizer": {
+                "type": "torch.optim.AdamW",
+                "lr": 0.00019250921682885874,
+                "weight_decay": 0.024285885321194675
+            },
+            "batch_size": 1024,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "model_num_embeddings_bins": {
+                "n_bins": 31
+            }
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "n_parameters": 4389953,
+            "prediction_type": "logits",
+            "batch_size": 1024,
+            "epoch_size": 313,
+            "best_step": 1565,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.99639375,
+                    "f1-score": 0.0,
+                    "average-precision": 0.14366585150320932,
+                    "roc-auc": 0.9059158378898703,
+                    "cross-entropy": 0.017795348539948463,
+                    "score": 0.14366585150320932
+                },
+                "val_iid": {
+                    "accuracy": 0.9947183336943572,
+                    "f1-score": 0.0,
+                    "average-precision": 0.12419183827239207,
+                    "roc-auc": 0.8612433466190863,
+                    "cross-entropy": 0.02790137007832527,
+                    "score": 0.12419183827239207
+                },
+                "val": {
+                    "accuracy": 0.9947183336943572,
+                    "f1-score": 0.0,
+                    "average-precision": 0.06874367958530002,
+                    "roc-auc": 0.8369910064619388,
+                    "cross-entropy": 0.030318904668092728,
+                    "score": 0.06874367958530002
+                },
+                "test_iid": {
+                    "accuracy": 0.9941717354598532,
+                    "f1-score": 0.0,
+                    "average-precision": 0.13283118138202948,
+                    "roc-auc": 0.8701499139658347,
+                    "cross-entropy": 0.030133994296193123,
+                    "score": 0.13283118138202948
+                },
+                "test": {
+                    "accuracy": 0.9941717354598532,
+                    "f1-score": 0.0,
+                    "average-precision": 0.07203120990613637,
+                    "roc-auc": 0.8539374563001234,
+                    "cross-entropy": 0.032943353056907654,
+                    "score": 0.07203120990613637
+                }
+            },
+            "time": 100.21705923974514,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 98,
+                "time": 5612.0655627259985,
+                "worker_id": 1
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 5707.401511626318,
+    "n_completed_trials": 100,
+    "worker_id": 1,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

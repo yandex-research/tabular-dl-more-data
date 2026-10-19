@@ -1,0 +1,67 @@
+{
+    "function": "lib.tools.evaluate.main",
+    "experiments": [
+        {
+            "config": {
+                "seed": 0,
+                "data": {
+                    "dataset_dir": "data/aeolus-flight-delay-2020-mar-dec-val5k",
+                    "train": {
+                        "size": 320000,
+                        "sampling": "random"
+                    },
+                    "val_key": "time",
+                    "test_key": "time",
+                    "num_transform": null,
+                    "cat_transform": null
+                },
+                "model": {
+                    "model_path": "checkpoints/tabpfn-v3/tabpfn-v3.5-20260909.safetensors"
+                },
+                "eval_parts": [
+                    "test"
+                ],
+                "concat_val": true,
+                "test_only": true
+            },
+            "report": {
+                "evaluation_roles": {
+                    "val": "time",
+                    "test": "time"
+                },
+                "function": "project.tabpfn_.main",
+                "prediction_type": "probs",
+                "timings": {
+                    "fit": 20.30173390591517,
+                    "predict_test": 764.3810949099716
+                },
+                "time": 784.6837940430269,
+                "metrics": {
+                    "test": {
+                        "accuracy": 0.79981,
+                        "f1-score": 0.01958959792350262,
+                        "average-precision": 0.326082027167995,
+                        "roc-auc": 0.658012281955734,
+                        "cross-entropy": 0.47886210680007935,
+                        "score": 0.326082027167995
+                    }
+                },
+                "gpu-cost": {
+                    "max-mem-alloc-mb": 10974.0986328125,
+                    "max-mem-reserved-mb": 18480.0
+                },
+                "evaluation": {
+                    "worker_id": 0
+                },
+                "hardware": {
+                    "gpu": "NVIDIA A100"
+                }
+            }
+        }
+    ],
+    "time": 813.1618086819071,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

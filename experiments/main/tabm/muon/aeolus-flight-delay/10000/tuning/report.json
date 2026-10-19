@@ -1,0 +1,118 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/aeolus-flight-delay",
+                "train": {
+                    "size": 10000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 5,
+                    "d_block": 416,
+                    "dropout": 0.401407122974367,
+                    "arch_type": "tabm",
+                    "k": 16
+                },
+                "type": "tabm"
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.0006707118758317239,
+                "weight_decay": 0.9381805309146877,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.006489826936730322
+                }
+            },
+            "batch_size": 256,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "share_training_batches": false,
+            "compile": true
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.tabm_.main",
+            "n_parameters": 3268304,
+            "prediction_type": "probs",
+            "batch_size": 256,
+            "epoch_size": 40,
+            "best_step": 560,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.8259,
+                    "f1-score": 0.0,
+                    "average-precision": 0.36865508890472803,
+                    "roc-auc": 0.7244094983774509,
+                    "cross-entropy": 0.42038729786872864,
+                    "score": 0.36865508890472803
+                },
+                "val_iid": {
+                    "accuracy": 0.83086,
+                    "f1-score": 0.0,
+                    "average-precision": 0.30100383300611366,
+                    "roc-auc": 0.6807986358923003,
+                    "cross-entropy": 0.42624983191490173,
+                    "score": 0.30100383300611366
+                },
+                "val": {
+                    "accuracy": 0.80333,
+                    "f1-score": 0.0,
+                    "average-precision": 0.35166298408884195,
+                    "roc-auc": 0.6824722599501485,
+                    "cross-entropy": 0.46458524465560913,
+                    "score": 0.35166298408884195
+                },
+                "test_iid": {
+                    "accuracy": 0.83052,
+                    "f1-score": 0.0,
+                    "average-precision": 0.3026633922545841,
+                    "roc-auc": 0.6798235873811995,
+                    "cross-entropy": 0.42686325311660767,
+                    "score": 0.3026633922545841
+                },
+                "test": {
+                    "accuracy": 0.7994,
+                    "f1-score": 0.0,
+                    "average-precision": 0.34731033713305226,
+                    "roc-auc": 0.6806310372111086,
+                    "cross-entropy": 0.47092753648757935,
+                    "score": 0.34731033713305226
+                }
+            },
+            "time": 79.1296917439904,
+            "eval_batch_size": 2048,
+            "tuning": {
+                "trial_id": 53,
+                "time": 2037.912028211169,
+                "worker_id": 1
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 5107.7728619060945,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

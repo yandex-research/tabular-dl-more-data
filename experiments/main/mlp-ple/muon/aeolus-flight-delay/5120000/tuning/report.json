@@ -1,0 +1,122 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/aeolus-flight-delay",
+                "train": {
+                    "size": 5120000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 1,
+                    "d_block": 720,
+                    "dropout": 0.0
+                },
+                "num_embeddings": {
+                    "type": "PiecewiseLinearEmbeddings",
+                    "d_embedding": 32,
+                    "activation": false,
+                    "version": "B"
+                }
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.0003000690746115147,
+                "weight_decay": 0.6756119317959686,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.0005868600011014668
+                }
+            },
+            "batch_size": 4096,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "model_num_embeddings_bins": {
+                "n_bins": 16
+            }
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "n_parameters": 5765617,
+            "prediction_type": "logits",
+            "batch_size": 4096,
+            "epoch_size": 1250,
+            "best_step": 42500,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.8359931640625,
+                    "f1-score": 0.09966064985820203,
+                    "average-precision": 0.39006038962550454,
+                    "roc-auc": 0.735868721674273,
+                    "cross-entropy": 0.4016774892807007,
+                    "score": 0.39006038962550454
+                },
+                "val_iid": {
+                    "accuracy": 0.83398,
+                    "f1-score": 0.09119772279395665,
+                    "average-precision": 0.3611875197418889,
+                    "roc-auc": 0.7203391001847155,
+                    "cross-entropy": 0.40897417068481445,
+                    "score": 0.3611875197418889
+                },
+                "val": {
+                    "accuracy": 0.80656,
+                    "f1-score": 0.0914044152184124,
+                    "average-precision": 0.37331536165949775,
+                    "roc-auc": 0.7016945448199269,
+                    "cross-entropy": 0.4559910297393799,
+                    "score": 0.37331536165949775
+                },
+                "test_iid": {
+                    "accuracy": 0.83451,
+                    "f1-score": 0.09156282593182193,
+                    "average-precision": 0.36945599482111147,
+                    "roc-auc": 0.7205864483746123,
+                    "cross-entropy": 0.4087387025356293,
+                    "score": 0.36945599482111147
+                },
+                "test": {
+                    "accuracy": 0.80233,
+                    "f1-score": 0.0824397716195516,
+                    "average-precision": 0.3743514970379609,
+                    "roc-auc": 0.6985704223955603,
+                    "cross-entropy": 0.4634886682033539,
+                    "score": 0.3743514970379609
+                }
+            },
+            "time": 1077.2650944376364,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 82,
+                "time": 35024.81900280807,
+                "worker_id": 1
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 40952.6817907989,
+    "n_completed_trials": 100,
+    "worker_id": 1,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

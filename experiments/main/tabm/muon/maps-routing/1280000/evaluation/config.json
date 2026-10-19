@@ -1,0 +1,47 @@
+{
+    "function": "project.tabm_.main",
+    "base_config": {
+        "data": {
+            "dataset_dir": "data/maps-routing",
+            "train": {
+                "size": 1280000,
+                "sampling": "random"
+            },
+            "val_key": "time",
+            "test_key": "time"
+        },
+        "model": {
+            "backbone": {
+                "n_blocks": 3,
+                "d_block": 496,
+                "dropout": 0.0,
+                "arch_type": "tabm",
+                "k": 16
+            },
+            "type": "tabm"
+        },
+        "optimizer": {
+            "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+            "lr": 0.0035851704608528224,
+            "weight_decay": 0.0336126359353469,
+            "betas": [
+                0.9,
+                0.999
+            ],
+            "eps": 1e-08,
+            "muon": {
+                "lr": 0.0073068347846921245
+            }
+        },
+        "batch_size": 2048,
+        "patience": 16,
+        "gradient_clipping_norm": 1.0,
+        "amp_dtype": "bfloat16",
+        "num_dtype": "bfloat16",
+        "share_training_batches": false,
+        "compile": true
+    },
+    "n_seeds": 10,
+    "save_experiments": true,
+    "n_workers": 2
+}

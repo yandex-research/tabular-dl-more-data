@@ -1,0 +1,38 @@
+{
+    "seed": 1,
+    "data": {
+        "dataset_dir": "data/weather",
+        "train": {
+            "size": 20000,
+            "sampling": "random"
+        },
+        "val_key": "time",
+        "test_key": "time",
+        "num_transform": "noisy-quantile"
+    },
+    "model": {
+        "backbone": {
+            "n_blocks": 2,
+            "d_block": 688,
+            "dropout": 0.35138587727959353
+        }
+    },
+    "optimizer": {
+        "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+        "lr": 0.0006476114691532884,
+        "weight_decay": 0.6767912019165171,
+        "betas": [
+            0.9,
+            0.999
+        ],
+        "eps": 1e-08,
+        "muon": {
+            "lr": 0.0003653887859203195
+        }
+    },
+    "batch_size": 256,
+    "patience": 16,
+    "gradient_clipping_norm": 1.0,
+    "amp_dtype": "bfloat16",
+    "num_dtype": "bfloat16"
+}

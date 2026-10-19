@@ -1,0 +1,95 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/jane-street",
+                "train": {
+                    "size": 5120000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 5,
+                    "d_block": 800,
+                    "dropout": 0.24500712830739546
+                }
+            },
+            "optimizer": {
+                "type": "torch.optim.AdamW",
+                "lr": 0.00024263171870634676,
+                "weight_decay": 0.27187693010694286
+            },
+            "batch_size": 4096,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16"
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "n_parameters": 3444001,
+            "prediction_type": "labels",
+            "batch_size": 4096,
+            "epoch_size": 1250,
+            "best_step": 2500,
+            "metrics": {
+                "train": {
+                    "rmse": 0.8941225675840182,
+                    "mae": 0.5782771706581116,
+                    "r2": 0.025754272937774658,
+                    "score": -0.8941225675840182
+                },
+                "val_iid": {
+                    "rmse": 0.8990443957975208,
+                    "mae": 0.5798817276954651,
+                    "r2": 0.022073805332183838,
+                    "score": -0.8990443957975208
+                },
+                "val": {
+                    "rmse": 0.7770372486170614,
+                    "mae": 0.49729999899864197,
+                    "r2": 0.013371467590332031,
+                    "score": -0.7770372486170614
+                },
+                "test_iid": {
+                    "rmse": 0.8986823038701369,
+                    "mae": 0.5818087458610535,
+                    "r2": 0.019220948219299316,
+                    "score": -0.8986823038701369
+                },
+                "test": {
+                    "rmse": 0.8060394337428375,
+                    "mae": 0.5380288362503052,
+                    "r2": 0.007546126842498779,
+                    "score": -0.8060394337428375
+                }
+            },
+            "time": 121.24497925397009,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 92,
+                "time": 5388.15877354797,
+                "worker_id": 1
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 5833.543502983637,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

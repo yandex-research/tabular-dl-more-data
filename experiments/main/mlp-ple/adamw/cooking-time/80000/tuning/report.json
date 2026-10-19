@@ -1,0 +1,103 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/cooking-time",
+                "train": {
+                    "size": 80000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 1,
+                    "d_block": 352,
+                    "dropout": 0.3239405243540438
+                },
+                "num_embeddings": {
+                    "type": "PiecewiseLinearEmbeddings",
+                    "d_embedding": 28,
+                    "activation": false,
+                    "version": "B"
+                }
+            },
+            "optimizer": {
+                "type": "torch.optim.AdamW",
+                "lr": 3.3478343311583555e-05,
+                "weight_decay": 1.4128705434093956
+            },
+            "batch_size": 512,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "model_num_embeddings_bins": {
+                "n_bins": 21
+            }
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "n_parameters": 1960041,
+            "prediction_type": "labels",
+            "batch_size": 512,
+            "epoch_size": 157,
+            "best_step": 7379,
+            "metrics": {
+                "train": {
+                    "rmse": 0.4544853803373229,
+                    "mae": 0.35422301292419434,
+                    "r2": 0.5289063453674316,
+                    "score": -0.4544853803373229
+                },
+                "val_iid": {
+                    "rmse": 0.4580387845171501,
+                    "mae": 0.3567100465297699,
+                    "r2": 0.5182483196258545,
+                    "score": -0.4580387845171501
+                },
+                "val": {
+                    "rmse": 0.4660052845935622,
+                    "mae": 0.36284586787223816,
+                    "r2": 0.5019792318344116,
+                    "score": -0.4660052845935622
+                },
+                "test_iid": {
+                    "rmse": 0.45798220695057146,
+                    "mae": 0.3577658236026764,
+                    "r2": 0.5144689083099365,
+                    "score": -0.45798220695057146
+                },
+                "test": {
+                    "rmse": 0.48225100189982945,
+                    "mae": 0.3769431710243225,
+                    "r2": 0.48147839307785034,
+                    "score": -0.48225100189982945
+                }
+            },
+            "time": 31.301445871591568,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 64,
+                "time": 901.8761729076505,
+                "worker_id": 1
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 1530.0958503000438,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

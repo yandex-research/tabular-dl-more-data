@@ -1,0 +1,110 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/maps-routing",
+                "train": {
+                    "size": 2560000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 5,
+                    "d_block": 592,
+                    "dropout": 0.0,
+                    "arch_type": "tabm",
+                    "k": 16
+                },
+                "type": "tabm"
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.001080743220326525,
+                "weight_decay": 0.006329636920603812,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.019681782108394198
+                }
+            },
+            "batch_size": 2048,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16",
+            "share_training_batches": false,
+            "compile": true
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.tabm_.main",
+            "n_parameters": 2151952,
+            "prediction_type": "labels",
+            "batch_size": 2048,
+            "epoch_size": 1250,
+            "best_step": 28750,
+            "metrics": {
+                "train": {
+                    "rmse": 0.15261404194847675,
+                    "mae": 0.11590263992547989,
+                    "r2": 0.8366776704788208,
+                    "score": -0.15261404194847675
+                },
+                "val_iid": {
+                    "rmse": 0.1556219113284703,
+                    "mae": 0.11808891594409943,
+                    "r2": 0.8300633430480957,
+                    "score": -0.1556219113284703
+                },
+                "val": {
+                    "rmse": 0.15847575867533426,
+                    "mae": 0.11903305351734161,
+                    "r2": 0.8223698139190674,
+                    "score": -0.15847575867533426
+                },
+                "test_iid": {
+                    "rmse": 0.15627342882934905,
+                    "mae": 0.11862128973007202,
+                    "r2": 0.8275271654129028,
+                    "score": -0.15627342882934905
+                },
+                "test": {
+                    "rmse": 0.15847916127763986,
+                    "mae": 0.11953938752412796,
+                    "r2": 0.8200995326042175,
+                    "score": -0.15847916127763986
+                }
+            },
+            "time": 1022.650480851531,
+            "eval_batch_size": 2048,
+            "tuning": {
+                "trial_id": 81,
+                "time": 48965.594954950735,
+                "worker_id": 0
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 58017.75842340104,
+    "n_completed_trials": 100,
+    "worker_id": 1,
+    "resumed_after_n_trials": [
+        36
+    ],
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

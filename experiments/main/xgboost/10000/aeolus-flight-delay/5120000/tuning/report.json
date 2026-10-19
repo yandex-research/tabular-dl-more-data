@@ -1,0 +1,111 @@
+{
+    "function": "lib.tools.tune.main",
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/aeolus-flight-delay",
+                "train": {
+                    "size": 5120000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time"
+            },
+            "model": {
+                "booster": "gbtree",
+                "n_estimators": 10000,
+                "early_stopping_rounds": 300,
+                "n_jobs": 8,
+                "tree_method": "hist",
+                "device": "cuda",
+                "use_label_encoder": false,
+                "max_depth": 10,
+                "min_child_weight": 41.34995689694508,
+                "subsample": 0.9006289258134677,
+                "colsample_bytree": 0.9573986810802266,
+                "learning_rate": 0.0037806470649396832,
+                "gamma": 0.1456189361308417,
+                "alpha": 0.9496121546944949,
+                "lambda": 0.0,
+                "grow_policy": "depthwise"
+            },
+            "fit": {
+                "verbose": true
+            }
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.xgboost_.main",
+            "prediction_type": "probs",
+            "time": 182.27958226017654,
+            "best_iteration": 1422,
+            "metrics": {
+                "train": {
+                    "accuracy": 0.8375212890625,
+                    "f1-score": 0.10212313102193286,
+                    "average-precision": 0.41626310576360576,
+                    "roc-auc": 0.7463954712935235,
+                    "cross-entropy": 0.39785274863243103,
+                    "score": 0.41626310576360576
+                },
+                "val_iid": {
+                    "accuracy": 0.83392,
+                    "f1-score": 0.07886855241264559,
+                    "average-precision": 0.35814263163794013,
+                    "roc-auc": 0.7150019690509541,
+                    "cross-entropy": 0.41122010350227356,
+                    "score": 0.35814263163794013
+                },
+                "val": {
+                    "accuracy": 0.80544,
+                    "f1-score": 0.07086914995224451,
+                    "average-precision": 0.36828078953485965,
+                    "roc-auc": 0.6976814541580297,
+                    "cross-entropy": 0.45737016201019287,
+                    "score": 0.36828078953485965
+                },
+                "test_iid": {
+                    "accuracy": 0.83472,
+                    "f1-score": 0.08533480907581627,
+                    "average-precision": 0.36689209064186096,
+                    "roc-auc": 0.7151550584265044,
+                    "cross-entropy": 0.41094735264778137,
+                    "score": 0.36689209064186096
+                },
+                "test": {
+                    "accuracy": 0.8018,
+                    "f1-score": 0.06190836804240818,
+                    "average-precision": 0.3687741518618752,
+                    "roc-auc": 0.6951705369879853,
+                    "cross-entropy": 0.46427813172340393,
+                    "score": 0.3687741518618752
+                }
+            },
+            "tuning": {
+                "trial_id": 97,
+                "time": 18008.359445848502,
+                "worker_id": 0
+            },
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            }
+        }
+    },
+    "time": 18217.90621526027,
+    "n_completed_trials": 100,
+    "worker_id": 0,
+    "resumed_after_n_trials": [
+        24,
+        35,
+        37,
+        50,
+        67
+    ],
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    }
+}

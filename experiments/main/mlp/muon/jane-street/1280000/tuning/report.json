@@ -1,0 +1,103 @@
+{
+    "function": "lib.tools.tune.main",
+    "hardware": {
+        "gpu": "NVIDIA A100"
+    },
+    "best": {
+        "config": {
+            "seed": 0,
+            "data": {
+                "dataset_dir": "data/jane-street",
+                "train": {
+                    "size": 1280000,
+                    "sampling": "random"
+                },
+                "val_key": "time",
+                "test_key": "time",
+                "num_transform": "noisy-quantile"
+            },
+            "model": {
+                "backbone": {
+                    "n_blocks": 3,
+                    "d_block": 992,
+                    "dropout": 0.47472084981755386
+                }
+            },
+            "optimizer": {
+                "type": "vendor.muon.SingleDeviceMuonWithAuxAdam",
+                "lr": 0.0009334395515916238,
+                "weight_decay": 0.013070938212806657,
+                "betas": [
+                    0.9,
+                    0.999
+                ],
+                "eps": 1e-08,
+                "muon": {
+                    "lr": 0.00027104890587999333
+                }
+            },
+            "batch_size": 2048,
+            "patience": 16,
+            "gradient_clipping_norm": 1.0,
+            "amp_dtype": "bfloat16",
+            "num_dtype": "bfloat16"
+        },
+        "report": {
+            "evaluation_roles": {
+                "val": "time",
+                "test": "time"
+            },
+            "function": "project.mlp.main",
+            "hardware": {
+                "gpu": "NVIDIA A100"
+            },
+            "n_parameters": 3062305,
+            "prediction_type": "labels",
+            "batch_size": 2048,
+            "epoch_size": 625,
+            "best_step": 10625,
+            "metrics": {
+                "train": {
+                    "rmse": 0.8930540923473606,
+                    "mae": 0.5781429409980774,
+                    "r2": 0.02569282054901123,
+                    "score": -0.8930540923473606
+                },
+                "val_iid": {
+                    "rmse": 0.9007511037925121,
+                    "mae": 0.5811272263526917,
+                    "r2": 0.01835733652114868,
+                    "score": -0.9007511037925121
+                },
+                "val": {
+                    "rmse": 0.7771725490038492,
+                    "mae": 0.4982658922672272,
+                    "r2": 0.013027846813201904,
+                    "score": -0.7771725490038492
+                },
+                "test_iid": {
+                    "rmse": 0.9002395138986574,
+                    "mae": 0.5831857919692993,
+                    "r2": 0.015819072723388672,
+                    "score": -0.9002395138986574
+                },
+                "test": {
+                    "rmse": 0.8061659850474593,
+                    "mae": 0.5391236543655396,
+                    "r2": 0.007234454154968262,
+                    "score": -0.8061659850474593
+                }
+            },
+            "time": 155.4443138577044,
+            "eval_batch_size": 32768,
+            "tuning": {
+                "trial_id": 67,
+                "time": 5326.885910011828,
+                "worker_id": 1
+            }
+        }
+    },
+    "time": 7907.6222432516515,
+    "n_completed_trials": 100,
+    "worker_id": 1
+}
