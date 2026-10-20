@@ -1,6 +1,6 @@
 # On Data Scaling in Tabular ML
 
-Code and results for *On Data Scaling in Tabular ML: More Data, Better Generalization?*.
+Code and results for [*On Data Scaling in Tabular ML: More Data, Better Generalization?*](https://arxiv.org/abs/2610.26794).
 We study training-data scaling on eight real-world datasets. More data generally
 improves performance, but gains under distribution shift depend on how models
 use validation data.
@@ -49,6 +49,10 @@ If you use this code or results, please cite:
 @misc{rubachev2026datascaling,
   title = {On Data Scaling in Tabular {ML}: More Data, Better Generalization?},
   author = {Ivan Rubachev and Nikita Lazarev and Artem Babenko},
-  year = {2026}
+  year = {2026},
+  eprint = {2610.26794},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.LG},
+  url = {https://arxiv.org/abs/2610.26794}
 }
 ```
